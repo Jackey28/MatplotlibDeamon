@@ -24,9 +24,9 @@ def jaccard_sim(str1, str2):
 
 plt.style.use('fivethirtyeight')
 
-map_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/ER/Walmart-Amazon-common/map.csv"
-l_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/ER/Walmart-Amazon-common/tableA.csv"
-r_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/ER/Walmart-Amazon-common/tableB.csv"
+map_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/EC/songs/map_filtered.csv"
+l_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/EC/songs/msd_mini.csv"
+r_pth = "/home/LAB/zhuxk/project/data/ER-dataset-benchmark/EC/songs/msd_mini.csv"
 
 if __name__ == '__main__':
 	l_csv = pd.read_csv(l_pth, index_col=False, encoding="utf-8")
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 	row_num = map_csv.shape[0]
 	col_num = l_csv.shape[1] - 1
 	count = 0
-	sim_graph_p = pd.DataFrame(columns=['title', 'category', 'brand', 'modelon', 'price'])
+	sim_graph_p = pd.DataFrame(columns=[ 'title', 'release', 'artist_name', 'duration', 'artist_familiarity', 'artist_hotttnesss', 'year'])
 	#sim_graph_p = pd.DataFrame(columns=['title', 'discription', 'manufacturer', 'price'])
 
 	for index, row in map_csv.iterrows():
@@ -48,24 +48,28 @@ if __name__ == '__main__':
 		r_slice = r_csv.loc[r_csv['id'] == (row['id2'])]
 		sim_tuple = []
 		del l_slice['id']
+		if(l_slice.empty or r_slice.empty):
+			continue
 		for i in l_slice:
 			l = l_slice[i].to_numpy(dtype=object)[0]
 			r = r_slice[i].to_numpy(dtype=object)[0]
+			
 			sim_ = Jaro_Winkler(str(l), str(r))
 			#sim_ = jaccard_sim(str(l), str(r))
 			#sim_ = lv.distance(str(l), str(r))
 			sim_tuple.append(sim_)
 		new = pd.DataFrame({ 'title': sim_tuple[0],
-								'category': sim_tuple[1],
-								'brand': sim_tuple[2],
-								'modelon': sim_tuple[3],
-								'price': sim_tuple[4]},
+								'release': sim_tuple[1],
+								'artist_name': sim_tuple[2],
+								'duration': sim_tuple[3],
+								'artist_familiarity': sim_tuple[4],
+								'artist_hotttnesss': sim_tuple[5],
+								'year': sim_tuple[4]},
 						   index=[1])
 	#	if(sim_tuple[2]<0.4):
 	#		print(l)
 	#		print(r)
 
-		print(sim_tuple)
 	#	new = pd.DataFrame({ 'title': sim_tuple[0],
 	#						'discription': sim_tuple[1],
 	#						'manufacturer': sim_tuple[2],
@@ -76,10 +80,8 @@ if __name__ == '__main__':
 		count = count+1
 		if count==1000:
 			break
-	print(sim_graph_p)
-
 	x_ = [i for i in range(len(sim_graph_p))]
-	tau_ = 0.95
+	tau_ = 0.90
 	for i in sim_graph_p:
 		y_ = sim_graph_p[i].to_numpy()
 		y_ = sorted(y_)
