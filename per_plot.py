@@ -186,7 +186,8 @@ plt.style.use('seaborn-pastel')
 fig, axs = plt.subplots(4, 4)
 
 
-spark_er = [1362.117,1,1,1,1]
+spark_er = [1362.117,1389.114, 6076,6101.6,6453]
+x_spark_er = [0.2, 0.4]
 dedoop = [2,2,2,2,2]
 disdedup = [3,3,3,3,3]
 per_mqo = [4,4,4,4,4]
@@ -202,14 +203,14 @@ axs[0, 0].plot(x, per_mqo, marker='2', color='darkred', label='$MRLsMatch$', mar
 
 axs[0, 0].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 0].set_xlabel('scale factor', fontdict=font1)
-axs[0, 0].set_title('(a) TFACC: Varying $|D|$', fontdict=font1,y=-0.2)
+axs[0, 0].set_title('(a) TFACC: Varying $|D|$', fontdict=font1)
 axs[0, 0].set_xlim([0.2, 1.0])
-#axs[0, 0].set_ylim([0.2, 1])
+#axs[0, 0].set_ylim([0, 5000])
 axs[0, 0].tick_params(labelsize=10)
 for ytick in axs[0, 0].get_yticklabels():
     ytick.set_rotation(30)
 
-spark_er = [1,1,1,1,1]
+spark_er = [0.4504,0.2229,0.2051,0.1312,0.1108]
 dedoop = [2,2,2,2,2]
 disdedup = [3,3,3,3,3]
 per_mqo = [4,4,4,4,4]
@@ -223,8 +224,9 @@ axs[0, 1].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[0, 1].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 1].set_xlabel('scale factor', fontdict=font1)
-axs[0, 1].set_title('(b) TPCH: Varying $|D|$', fontdict=font1, y=-0.2)
+axs[0, 1].set_title('(b) TPCH: Varying $|D|$', fontdict=font1 )
 axs[0, 1].set_xlim([0.2, 1.0])
+axs[0, 1].set_ylim([0, 1.0])
 axs[0, 1].tick_params(labelsize=10)
 for ytick in axs[0, 1].get_yticklabels():
     ytick.set_rotation(30)
@@ -244,7 +246,7 @@ axs[0, 2].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[0, 2].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 2].set_xlabel('scale factor', fontdict=font1)
-axs[0, 2].set_title('(b) TPCH: Varying $|D|$', fontdict=font1, y=-0.2)
+axs[0, 2].set_title('(b) TPCH: Varying $|D|$', fontdict=font1)
 axs[0, 2].set_xlim([0.2, 1.0])
 axs[0, 2].tick_params(labelsize=10)
 for ytick in axs[0, 1].get_yticklabels():
@@ -267,7 +269,7 @@ axs[1, 0].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 
 axs[1, 0].set_ylabel('F1', fontdict=font1)
 axs[1, 0].set_xlabel('scale factor', fontdict=font1)
-axs[1, 0].set_title('(e) TFACC: Varying $|D|$', fontdict=font1,y=-0.2)
+axs[1, 0].set_title('(e) TFACC: Varying $|D|$', fontdict=font1)
 axs[1, 0].set_xlim([0.2, 1.0])
 # axs[0, 0].set_ylim([0.2, 1])
 axs[0, 0].tick_params(labelsize=10)
@@ -288,13 +290,13 @@ axs[1, 1].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 
 axs[1, 1].set_ylabel('F1', fontdict=font1)
 axs[1, 1].set_xlabel('scale factor', fontdict=font1)
-axs[1, 1].set_title('(b) TPCH: Varying $|D|$', fontdict=font1, y=-0.2)
+axs[1, 1].set_title('(b) TPCH: Varying $|D|$', fontdict=font1)
 axs[1, 1].set_xlim([0.2, 1.0])
 axs[1, 1].tick_params(labelsize=10)
 for ytick in axs[1, 1].get_yticklabels():
     ytick.set_rotation(30)
 
-spark_er = [1, 1, 1, 1, 1362.117]
+spark_er = [1389.138, 1372.726, 1370.04, 1379.25, 1362.117]
 dedoop = [2, 2, 2, 2, 2]
 disdedup = [3, 3, 3, 3, 3]
 per_mqo = [4, 4, 4, 4, 4]
@@ -307,8 +309,9 @@ axs[2, 0].plot(x, per, marker='2', color='crimson', linestyle="dashdot", markers
 axs[2, 0].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 
 axs[2, 0].set_ylabel('time (sec.)', fontdict=font1)
+axs[2, 0].set_xlabel('$n$', fontdict=font1)
 #axs[2, 0].set_xlabel('scale factor', fontdict=font1)
-axs[2, 0].set_title('(i) TFACC: Varying $n$', fontdict=font1, y=-0.2)
+axs[2, 0].set_title('(i) TFACC: Varying $n$', fontdict=font1)
 axs[2, 0].set_xlim([4, 32])
 axs[2, 0].tick_params(labelsize=10)
 for ytick in axs[2, 0].get_yticklabels():
