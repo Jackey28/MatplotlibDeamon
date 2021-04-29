@@ -189,12 +189,23 @@ fig, axs = plt.subplots(3, 4)
 spark_er = [1362.117,1389.114, 6076,6101.6,6453]
 x_spark_er = [0.2, 0.4]
 dedoop = [30000,30000,99999,99999,99999]
-disdedup = [900,3,3,3,3]
+disdedup = [338+460, 449+508+330+310,1992,1295+1235,1916+1602]
 per_mqo = [4,4,4,4,4]
 per = [5,5,5,5,5]
 x = [0.2, 0.4, 0.6, 0.8, 1.0]
 # axs[2, 3].plot(x, with_mqo,   marker='o', color='mediumslateblue')
 # axs[2, 3].plot(x, dedoop,   marker='+', color='khaki')
+
+"""
+gt_only:
+    TFACC:
+        sparkliclearn: 10w, data gen 460sec. exe: 338 sec.
+        sparkliclearn: 20w, data gen (449 + 508) sec. exe: (330 + 310)sec.
+        sparkliclearn: 30w, data gen (271) x 4 sec. exe: (227) x 4sec.
+        sparkliclearn: 40w, data gen 1235 sec. exe: 1295 sec.
+        sparkliclearn: 50w, data gen 1916 sec. exe: 1602 sec.
+"""
+
 axs[0, 0].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5, label ='Sparker')
 axs[0, 0].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':', label='Dedoop', markersize=4)
 axs[0, 0].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), label='Disdedup')
@@ -233,8 +244,9 @@ for ytick in axs[0, 1].get_yticklabels():
 
 
 spark_er = [0,0.4504,0.4504,0.4504,0.4504,0.4504]
+spark_er = [0,0.37,0.37,0.37,0.37,0.37]
 dedoop = [0,0.49,0.49,0.49,0.49,0.49]
-disdedup = [0,3,3,3,3,3]
+disdedup = [0, 0.28436759590663907, 0.28436759590663907, 0.28436759590663907, 0.28436759590663907,0.28436759590663907]
 per_mqo = [0,4,4,4,4,4]
 per = [0,5,5,5,5,5]
 x = [0, 1, 5, 10, 15, 20]
@@ -255,9 +267,9 @@ for ytick in axs[1, 2].get_yticklabels():
 
 spark_er = [0,0.4504,0.4504,0.4504,0.4504,0.4504]
 dedoop = [0,0.49,0.49,0.49,0.49,0.49]
-disdedup = [0,3,3,3,3,3]
-per_mqo = [0,4,4,4,4,4]
-per = [0,5,5,5,5,5]
+disdedup = [0,0.2844,0.2844,0.2844,0.2844,0.2844]
+per_mqo = [0,1,1,1,1,1]
+per = [0,1,1,1,1,1]
 x = [0, 1, 5, 10, 15, 20]
 axs[1, 3].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[1, 3].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
@@ -269,16 +281,16 @@ axs[1, 3].set_ylabel('F1', fontdict=font1)
 axs[1, 3].set_xlabel('$|\Sigma|$', fontdict=font1)
 axs[1, 3].set_title('(h) TFACC: Varying $\Sigma$', fontdict=font1)
 axs[1, 3].set_xlim([0, 20])
-axs[1, 3].set_ylim([0, 1.0])
+axs[1, 3].set_ylim([0, 0.5])
 axs[1, 3].tick_params(labelsize=10)
-for ytick in axs[1, 2].get_yticklabels():
+for ytick in axs[1, 3].get_yticklabels():
     ytick.set_rotation(30)
 
 
 
 spark_er = [0, 1389.114,1389.114 ,1389.114,1389.114,1389.114]
 dedoop = [0,30000,30000,30000,30000,30000]
-disdedup = [0,3,3,3,3,3]
+disdedup = [0,338+460,338+460,338+460,338+460,338+460]
 per_mqo = [0,4,4,4,4,4]
 per = [0,5,5,5,5,5]
 x = [0, 1, 5, 10, 15, 20]
@@ -299,7 +311,7 @@ for ytick in axs[0, 2].get_yticklabels():
 
 
 
-spark_er = [0,0.4504,0.4504,0.4504,0.4504,0.4504]
+spark_er = [0,0.37,0.37,0.37,0.37,0.37]
 dedoop = [0,0.49,0.49,0.49,0.49,0.49]
 disdedup = [0,3,3,3,3,3]
 per_mqo = [0,4,4,4,4,4]
@@ -322,17 +334,25 @@ for ytick in axs[0, 3].get_yticklabels():
 
 
 """
-#dedoop tfacc_result_10w tp: 44596 fp: 3744  total: 134000 prec:0.922 recall:0.3328 f1: 0.489
-#dedoop tfacc_result_20w tp:  89174 fp: 9942 total: 270000 prec: 0.8996932886718593 recall: 0.33027407407407405 f1: 0.4831760205463865
-#dedoop tfacc_result_30w tp:  120416 fp:  43952 total: 400000  prec: 0.7326000194685097 recall: 0.30104 f1: 0.4267286593144899
-#dedoop tfacc_result_40w  tp:  160620 fp:  26494 total: 540000 prec: 0.8584071742360272 recall: 0.29744444444444446 f1: 0.4418014231606048
-#dedoop tfacc_result_50w tp:  200844 fp:  43740 total: 660000  prec: 0.8211657344715926 recall: 0.3043090909090909 f1: 0.4440582632458678
+tfacc:
+    #dedoop tfacc_result_10w tp: 44596 fp: 3744  total: 134000 prec:0.922 recall:0.3328 f1: 0.489
+    #dedoop tfacc_result_20w tp:  89174 fp: 9942 total: 270000 prec: 0.8996932886718593 recall: 0.33027407407407405 f1: 0.4831760205463865
+    #dedoop tfacc_result_30w tp:  120416 fp:  43952 total: 400000  prec: 0.7326000194685097 recall: 0.30104 f1: 0.4267286593144899
+    #dedoop tfacc_result_40w  tp:  160620 fp:  26494 total: 540000 prec: 0.8584071742360272 recall: 0.29744444444444446 f1: 0.4418014231606048
+    #dedoop tfacc_result_50w tp:  200844 fp:  43740 total: 660000  prec: 0.8211657344715926 recall: 0.3043090909090909 f1: 0.4440582632458678
+
+    #spakrlyclearn tfacc_result_10w: tp：16923 whole: 19081 prec:  0.8869032021382527 rec:  0.16932990464373981 f1:  0.28436759590663907
+    #spakrlyclearn tfacc_result_20w: tp：35839 dec:40464 total:199808 prec:  0.8857 rec:  0.1793 f1:  0.298227
+    #spakrlyclearn tfacc_result_30w: tp：65906 detect:71617 total:400000  prec:  0.9202563637125264 rec:  0.164765 f1:  0.27948950101459447
+    #spakrlyclearn tfacc_result_40w: tp：34894+32492+16402 detect:36773+34012+18154 total:540000  prec:  0.9420839002012615 rec:  0.15516296296296297 f1:  0.26644237358471967
+    #spakrlyclearn tfacc_result_50w: tp：109657 detect:120165 total:660000  prec:  0.9125535721715974 rec:  0.1661469696969697 f1:  0.2811123288022405
+    
 """
 
 spark_er = [0.45, 1, 1, 1, 1]
 spark_er = [0.37,0.2229,0.2051,0.1312,0.1108]
 dedoop = [0.49, 0.48, 0.42, 0.4418014231606048, 0.44405826324586]
-disdedup = [0.04, 3, 3, 3, 3]
+disdedup = [0.28436759590663907, 0.298227, 0.27948950101459447, 0.26644, 0.281112]
 per_mqo = [4, 4, 4, 4, 4]
 per = [5, 5, 5, 5, 5]
 x = [0.2, 0.4, 0.6, 0.8, 1.0]
@@ -373,9 +393,21 @@ axs[1, 1].tick_params(labelsize=10)
 for ytick in axs[1, 1].get_yticklabels():
     ytick.set_rotation(30)
 
+
+"""
+    tpacc:
+        10w: 
+            32 reducer - data gen: 460, exe model: 338
+            24 reducer - data gen: 469, exe model: 376
+            16 reducer - data gen: 510, exe model: 377
+            8 reducer - data gen: 429, exe model: 366
+            4 reducer - data gen: 441, exe model: 309
+            
+            
+"""
 spark_er = [1389.138, 1372.726, 1370.04, 1379.25, 1362.117]
 dedoop = [99999, 99999, 99999, 99999, 30000]
-disdedup = [3, 3, 3, 3, 3]
+disdedup = [338+460, 469+376, 510+377, 429+366, 441+309]
 per_mqo = [4, 4, 4, 4, 4]
 per = [5, 5, 5, 5, 5]
 x = [4,8,16,24,32]
@@ -390,7 +422,7 @@ axs[2, 0].set_xlabel('$n$', fontdict=font1)
 #axs[2, 0].set_xlabel('scale factor', fontdict=font1)
 axs[2, 0].set_title('(i) TFACC: Varying $n$', fontdict=font1)
 axs[2, 0].set_xlim([4, 32])
-axs[2, 0].set_ylim([0, 36000])
+axs[2, 0].set_ylim([0, 5000])
 axs[2, 0].tick_params(labelsize=10)
 for ytick in axs[2, 0].get_yticklabels():
     ytick.set_rotation(30)
