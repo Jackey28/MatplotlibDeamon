@@ -218,7 +218,7 @@ axs[0, 0].plot(x, per_mqo, marker='2', color='darkred', label='$MRLsMatch$', mar
 
 axs[0, 0].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 0].set_xlabel('scale factor', fontdict=font1)
-axs[0, 0].set_title('(a) TPCH: Varying $dup(mio)$', fontdict=font1)
+axs[0, 0].set_title('(a) TPACC: Varying $dup(mio)$', fontdict=font1)
 axs[0, 0].set_xlim([0.1, 0.5])
 axs[0, 0].set_ylim([0, 10000])
 axs[0, 0].tick_params(labelsize=10)
@@ -448,12 +448,13 @@ axs[2, 0].set_xlabel('$n$', fontdict=font1)
 #axs[2, 0].set_xlabel('scale factor', fontdict=font1)
 axs[2, 0].set_title('(i) TFACC: Varying $n$', fontdict=font1)
 axs[2, 0].set_xlim([4, 32])
-axs[2, 0].set_ylim([0, 5000])
+axs[2, 0].set_ylim([0, 3000])
 axs[2, 0].tick_params(labelsize=10)
 for ytick in axs[2, 0].get_yticklabels():
     ytick.set_rotation(30)
 
-spark_er = [1,1,1,1,1]
+spark_er = [27.14, 29.18, 29.11, 28.03, 46.03]
+spark_er = list(reversed(spark_er))
 dedoop = [26, 25, 27, 30, 72]
 dedoop = list(reversed(dedoop))
 disdedup = [56, 55, 55, 54, 54]
@@ -463,8 +464,8 @@ x = [4,8,16,24,32]
 axs[2, 1].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5)
 axs[2, 1].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':', markersize=4)
 axs[2, 1].plot(x, disdedup, marker='o', color='olive', linestyle=(0, (5, 1)), )
-axs[2, 1].plot(x, per, marker='2', color='crimson', linestyle="dashdot", markersize=8)
-#axs[2, 1].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
+#axs[2, 1].plot(x, per, marker='2', color='crimson', linestyle="dashdot", markersize=8)
+axs[2, 1].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 
 axs[2, 1].set_ylabel('time (sec.)', fontdict=font1)
 axs[2, 1].set_xlabel('$n$', fontdict=font1)
@@ -487,7 +488,7 @@ population_by_continent = {
 axs[2, 3].stackplot(x_, population_by_continent.values(), labels=population_by_continent.keys(), colors=colors)
 axs[2, 3].set_ylabel('Time (sec.)', fontdict=font1)
 axs[2, 3].set_xlabel('scale factor', fontdict=font1)
-axs[2, 3].set_title('(j) TPCH: Cost Breakdown', fontdict=font1)
+axs[2, 3].set_title('(l) TPCH: Cost Breakdown', fontdict=font1)
 axs[2, 3].set_xlim([0.2, 1])
 axs[2, 3].set_ylim([12, 68])
 axs[2, 3].tick_params(labelsize=10)
