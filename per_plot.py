@@ -230,12 +230,13 @@ for ytick in axs[0, 0].get_yticklabels():
 
 
 #similate: suppose that the whole data set is blocked, we just process one block. the final result are block num times one block time.
-spark_er = [0.4504,0.2229,0.2051,0.1312,0.1108]
+spark_er = [45.67359495162964, 76.46437311172485,105.16027498245239,126.60856580734253,150.44120454788208]
 #dedoop = [(24096605/99809)*68,  (24096605/199809 )*68, (24136605/279595)*66, ()*67,2]
 dedoop = [68 * 40.616*0.9897, 68*40.616*0.9917, 68*40.616*0.9934,68*40.616*0.9958,69*40.616]
-disdedup = [3,3,3,3,3]
-per_mqo = [4,4,4,4,4]
-per = [5,5,5,5,5]
+dedoop = [30,29,31,37,30]
+disdedup = [57,70,76,95,101]
+per_mqo = [16.573876,22.39253,38.79271,57.52258, 66.15057]
+per = [0,0,0,0,0]
 x = [0.1, 0.2, 0.3, 0.4, 0.5]
 axs[0, 1].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[0, 1].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
@@ -247,7 +248,7 @@ axs[0, 1].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 1].set_xlabel('scale factor', fontdict=font1)
 axs[0, 1].set_title('(b) TPCH: Varying $dup(mio)$', fontdict=font1)
 axs[0, 1].set_xlim([0.1, 0.5])
-axs[0, 1].set_ylim([0, 8000])
+axs[0, 1].set_ylim([0, 160])
 axs[0, 1].tick_params(labelsize=10)
 for ytick in axs[0, 1].get_yticklabels():
     ytick.set_rotation(30)
@@ -263,8 +264,8 @@ x = [0, 1, 5, 10, 15, 20]
 axs[1, 2].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[1, 2].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
 axs[1, 2].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), )
-axs[1, 2].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
-axs[1, 2].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
+#axs[1, 2].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
+#axs[1, 2].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[1, 2].set_ylabel('F1', fontdict=font1)
 axs[1, 2].set_xlabel('$|\Sigma|$', fontdict=font1)
@@ -275,23 +276,24 @@ axs[1, 2].tick_params(labelsize=10)
 for ytick in axs[1, 2].get_yticklabels():
     ytick.set_rotation(30)
 
-spark_er = [0,0.4504,0.4504,0.4504,0.4504,0.4504]
-dedoop = [0,0.49,0.49,0.49,0.49,0.49]
-disdedup = [0,0.2844,0.2844,0.2844,0.2844,0.2844]
+
+spark_er = [0,0.612577,0.612577,0.612577,0.612577,0.612577]
+dedoop = [0,0.65345138,0.65345138,0.65345138,0.65345138,0.65345138]
+disdedup = [0,0.777174306,0.777174306,0.777174306,0.777174306,0.777174306]
 per_mqo = [0,1,1,1,1,1]
 per = [0,1,1,1,1,1]
 x = [0, 1, 5, 10, 15, 20]
 axs[1, 3].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[1, 3].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
 axs[1, 3].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), )
-axs[1, 3].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
-axs[1, 3].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
+#axs[1, 3].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
+#axs[1, 3].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[1, 3].set_ylabel('F1', fontdict=font1)
 axs[1, 3].set_xlabel('$|\Sigma|$', fontdict=font1)
 axs[1, 3].set_title('(h) TFACC: Varying $|\Sigma|$', fontdict=font1)
 axs[1, 3].set_xlim([0, 20])
-axs[1, 3].set_ylim([0, 0.5])
+axs[1, 3].set_ylim([0, 1])
 axs[1, 3].tick_params(labelsize=10)
 for ytick in axs[1, 3].get_yticklabels():
     ytick.set_rotation(30)
@@ -299,16 +301,16 @@ for ytick in axs[1, 3].get_yticklabels():
 
 
 spark_er = [0, 1389.114,1389.114 ,1389.114,1389.114,1389.114]
-dedoop = [0,30000,30000,30000,30000,30000]
+dedoop = [0,30*30000000/183745,30*30000000/183745,30*30000000/183745,30*30000000/183745,30*30000000/183745]
 disdedup = [0,338+460,338+460,338+460,338+460,338+460]
-per_mqo = [0,4,4,4,4,4]
-per = [0,5,5,5,5,5]
+#per_mqo = [0,4,4,4,4,4]
+#per = [0,5,5,5,5,5]
 x = [0, 1, 5, 10, 15, 20]
 axs[0, 2].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[0, 2].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
 axs[0, 2].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), )
-axs[0, 2].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
-axs[0, 2].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
+#axs[0, 2].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
+#axs[0, 2].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[0, 2].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 2].set_xlabel('$|\Sigma|$', fontdict=font1)
@@ -321,23 +323,23 @@ for ytick in axs[0, 2].get_yticklabels():
 
 
 
-spark_er = [0,0.37,0.37,0.37,0.37,0.37]
-dedoop = [0,0.49,0.49,0.49,0.49,0.49]
-disdedup = [0,3,3,3,3,3]
-per_mqo = [0,4,4,4,4,4]
-per = [0,5,5,5,5,5]
+spark_er = [0,45.67359495162964,45.67359495162964,45.67359495162964,45.67359495162964,45.67359495162964]
+dedoop = [0,30,30,30,30,30]
+disdedup = [0,57,57,57,57,57]
+#per_mqo = [0,4,4,4,4,0]
+#per = [0,5,5,5,5,5]
 x = [0, 1, 5, 10, 15, 20]
 axs[0, 3].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
 axs[0, 3].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
 axs[0, 3].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), )
-axs[0, 3].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
-axs[0, 3].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
+#axs[0, 3].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
+#axs[0, 3].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
 
 axs[0, 3].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 3].set_xlabel('$|\Sigma|$', fontdict=font1)
 axs[0, 3].set_title('(d) TPCH: Varying $|\Sigma|$', fontdict=font1)
 axs[0, 3].set_xlim([0, 20])
-axs[0, 3].set_ylim([0, 1.0])
+#axs[0, 3].set_ylim([0, 1.0])
 axs[0, 3].tick_params(labelsize=10)
 for ytick in axs[0, 3].get_yticklabels():
     ytick.set_rotation(30)
@@ -359,13 +361,13 @@ tfacc:
     
 """
 
-spark_er = [0.45, 1, 1, 1, 1]
+#spark_er = [0.45, 1, 1, 1, 1]
 spark_er = [0.37,0.2229,0.2051,0.1312,0.1108]
 dedoop = [0.49, 0.48, 0.42, 0.4418014231606048, 0.44405826324586]
 disdedup = [0.28436759590663907, 0.298227, 0.27948950101459447, 0.26644, 0.281112]
 per_mqo = [4, 4, 4, 4, 4]
 per = [5, 5, 5, 5, 5]
-x = [0.1, 0.2, 0.3, 0.4, 0.5]
+x = [0.2, 0.4, 0.6, 0.8, 1]
 # axs[2, 3].plot(x, with_mqo,   marker='o', color='mediumslateblue')
 # axs[2, 3].plot(x, dedoop,   marker='+', color='khaki')
 axs[1, 0].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5, )
@@ -377,7 +379,7 @@ axs[1, 0].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 axs[1, 0].set_ylabel('F1', fontdict=font1)
 axs[1, 0].set_xlabel('scale factor', fontdict=font1)
 axs[1, 0].set_title('(e) TFACC: Varying $dup(mio)$', fontdict=font1)
-axs[1, 0].set_xlim([0.1, 0.5])
+axs[1, 0].set_xlim([0.2, 1])
 axs[1, 0].set_ylim([0, 1])
 axs[1, 0].tick_params(labelsize=10)
 for ytick in axs[1, 0].get_yticklabels():
@@ -395,10 +397,11 @@ gt_only:
             dedoop: 50w, single_match: 299098.0 all_match 2085851 tp:  295582 fp:  1766 prec: 0.9940608310800813 recall: 0.9882446555978308 f1: 0.9911442108757541
 """
 
-spark_er = [0.66, 1, 1, 1, 1]
-dedoop = [getf1(49228,99942/2,557605), getf1(98547, 99904,1088303), getf1(138052,139798,1263659), getf1(197047,199600,1595559), getf1(295582,299098,2085851)]
-disdedup = [3, 3, 3, 3, 3]
-per_mqo = [4, 4, 4, 4, 4]
+spark_er = [0.612577, 0.4918439591198297, 0.4030027209800559, 0.27916341475565, 0.27565971334990363]
+#dedoop = [getf1(49228,99942/2,557605), getf1(98547, 99904,1088303), getf1(138052,139798,1263659), getf1(197047,199600,1595559), getf1(295582,299098,2085851)]
+dedoop = [0.65345138, 0.619535499,0.637043981,0.642176755,0.68459379]
+disdedup = [0.777174306,0.734008045,0.750800222,0.755016998,0.738586876]
+per_mqo = [0.916625743, 0.91646583, 0.916630957, 0.916526389, 0.915264417]
 per = [5, 5, 5, 5, 5]
 x = [0.2, 0.4, 0.6, 0.8, 1]
 axs[1, 1].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5)
@@ -411,7 +414,7 @@ axs[1, 1].set_ylabel('F1', fontdict=font1)
 axs[1, 1].set_xlabel('scale factor', fontdict=font1)
 axs[1, 1].set_title('(f) TPCH: Varying $dup(mio)$', fontdict=font1)
 axs[1, 1].set_xlim([0.2, 1])
-axs[1, 1].set_ylim([0, 1])
+axs[1, 1].set_ylim([0.2, 1])
 axs[1, 1].tick_params(labelsize=10)
 for ytick in axs[1, 1].get_yticklabels():
     ytick.set_rotation(30)
@@ -450,23 +453,24 @@ axs[2, 0].tick_params(labelsize=10)
 for ytick in axs[2, 0].get_yticklabels():
     ytick.set_rotation(30)
 
-spark_er = [1389.138, 1372.726, 1370.04, 1379.25, 1362.117]
-dedoop = [99999, 99999, 99999, 99999, 30000]
-disdedup = [3, 3, 3, 3, 3]
-per_mqo = [4, 4, 4, 4, 4]
+spark_er = [1,1,1,1,1]
+dedoop = [26, 25, 27, 30, 72]
+dedoop = list(reversed(dedoop))
+disdedup = [56, 55, 55, 54, 54]
+per_mqo = [23.326491,20.37801,18.165099,17.510679, 16.610637]
 per = [5, 5, 5, 5, 5]
 x = [4,8,16,24,32]
 axs[2, 1].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5)
 axs[2, 1].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':', markersize=4)
 axs[2, 1].plot(x, disdedup, marker='o', color='olive', linestyle=(0, (5, 1)), )
 axs[2, 1].plot(x, per, marker='2', color='crimson', linestyle="dashdot", markersize=8)
-axs[2, 1].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
+#axs[2, 1].plot(x, per_mqo, marker='2', color='darkred', markersize=8)
 
 axs[2, 1].set_ylabel('time (sec.)', fontdict=font1)
 axs[2, 1].set_xlabel('$n$', fontdict=font1)
 axs[2, 1].set_title('(j) TPCH: Varying $n$', fontdict=font1)
 axs[2, 1].set_xlim([4, 32])
-axs[2, 1].set_ylim([0, 36000])
+axs[2, 1].set_ylim([0, 75])
 axs[2, 1].tick_params(labelsize=10)
 for ytick in axs[2, 1].get_yticklabels():
     ytick.set_rotation(30)
@@ -474,32 +478,33 @@ for ytick in axs[2, 1].get_yticklabels():
 
 colors = ['navy', 'cornflowerblue', 'deepskyblue']
 
-x_ = [ 2, 4, 6, 8, 10]
+x_ = [ 0.2, 0.4, 0.6, 0.8, 1]
 population_by_continent = {
-    '$data partition$': list([0.050243,0.076026,0.093415,0.0978,0.095583]),
-    '$local match$': list([34.7923,19.1718,18.1284,9.33846,9.19014]),
-    '$closure$': list([0.150651,0.262626,0.260611,0.253624,0.255128]),
+    '$local match$': list([15.7217,20.6634,36.1438,53.9623,61.0086]),
+    '$closure$': list([0.852176,1.72913,2.64891,3.56028,5.14197]),
 }
+
 axs[2, 3].stackplot(x_, population_by_continent.values(), labels=population_by_continent.keys(), colors=colors)
 axs[2, 3].set_ylabel('Time (sec.)', fontdict=font1)
 axs[2, 3].set_xlabel('scale factor', fontdict=font1)
-axs[2, 3].set_title('(j) TFACC: Cost Breakdown', fontdict=font1)
-axs[2, 3].set_xlim([2, 10])
+axs[2, 3].set_title('(j) TPCH: Cost Breakdown', fontdict=font1)
+axs[2, 3].set_xlim([0.2, 1])
+axs[2, 3].set_ylim([12, 68])
 axs[2, 3].tick_params(labelsize=10)
 for ytick in axs[2, 3].get_yticklabels():
     ytick.set_rotation(30)
 
-x_ = [ 2, 4, 6, 8, 10]
+x_ = [ 4, 8, 16, 24, 32]
 population_by_continent = {
-    '$data partition$': list([0.050243,0.076026,0.093415,0.0978,0.095583]),
-    '$local match$': list([34.7923,19.1718,18.1284,9.33846,9.19014]),
-    '$closure$': list([0.150651,0.262626,0.260611,0.253624,0.255128]),
+    '$local match$': list([22.533,19.5301,17.3519,16.7003,15.7581]),
+    '$closure$': list([0.793491,0.84791,0.813199,0.810379,0.852537])
 }
 axs[2, 2].stackplot(x_, population_by_continent.values(), colors=colors)
 axs[2, 2].set_ylabel('Time (sec.)', fontdict=font1)
-axs[2, 2].set_xlabel('scale factor', fontdict=font1)
+axs[2, 2].set_xlabel('$n$', fontdict=font1)
 axs[2, 2].set_title('(k) TPCH: Cost Breakdown', fontdict=font1)
-axs[2, 2].set_xlim([2, 10])
+axs[2, 2].set_xlim([4, 32])
+axs[2, 2].set_ylim([15, 24])
 axs[2, 2].tick_params(labelsize=10)
 for ytick in axs[2, 2].get_yticklabels():
     ytick.set_rotation(30)
