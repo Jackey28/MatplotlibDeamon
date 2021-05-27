@@ -484,7 +484,7 @@ axs[2, 1].tick_params(labelsize=10)
 for ytick in axs[2, 1].get_yticklabels():
     ytick.set_rotation(30)
 
-
+"""
 colors = ['navy', 'cornflowerblue', 'deepskyblue']
 
 x_ = [ 0.2, 0.4, 0.6, 0.8, 1]
@@ -517,9 +517,10 @@ axs[2, 2].set_ylim([15, 24])
 axs[2, 2].tick_params(labelsize=10)
 for ytick in axs[2, 2].get_yticklabels():
     ytick.set_rotation(30)
+"""
 
 
 
-fig.legend(loc='upper center', ncol=4, fontsize=10)
+fig.legend(loc='upper center', ncol=8, fontsize=10)
 
 plt.show()
