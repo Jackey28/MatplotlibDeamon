@@ -201,26 +201,53 @@ plt.legend(loc='lower center') # 标签位置
 spark_er = [0,0,0,0,0]
 dedoop = [0,0,0,0,0]
 disdedup = [0,0,0,0,0]
-hyper = [(26.326664 + 24.401422)/2, (48.479328 + 48.601736)/2, (131.609672 + 139.679083)/2,  (138.982280 + 148.364814+147.848467 +133 + 134.616868)/5, 176.615500]
-hyper_inc = [16.332565,5, 49.075885,5,5]
-hyper_nml = [5,5,5,5,5]
+#hyper = [(26.326664 + 24.401422)/2, (48.479328 + 48.601736)/2, (131.609672 + 139.679083)/2,  (138.982280 + 148.364814+147.848467 +133 + 134.616868)/5, 176.615500]
+hyper = [24.68  , 42.2843, 91.5795,  144.55, 164.08]
+#hyper_inc = [16.332565, 23.053892, 41.854730, 60.919483, 73.585759]
+hyper_inc = [17.2677, 26.4467, 44.5676, 63.3853, 68.725]
+#hyper_nml = [ 23.95,42.094,89.075, 143.322,164.301]
+hyper_ext = [ 24.379791, 45.910275 , 85.566736, 123.502402, 136.503737]
 hyper_tqm = [5,5,5,5,5]
 x = [1, 2, 4, 6, 8]
 
 axs[0, 0].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5, label ='Sparker')
-axs[0, 0].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':', label='Dedoop', markersize=4)
+axs[0, 0].plot(x, dedoop, marker='*', color='darkslateblue', linestyle='--', label='Dedoop', markersize=4)
 axs[0, 0].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), label='Disdedup')
-axs[0, 0].plot(x, hyper, marker='2', color='crimson',  linestyle="dashdot", label='$Hyper$', markersize=8)
-axs[0, 0].plot(x, hyper_inc, marker='3', color='darkred', linestyle="dashdot",label='$Hyper_{inc}$', markersize=8)
-axs[0, 0].plot(x, hyper_nml, marker='4', color='darkred', linestyle="dashdot",label='$Hyper_{nml}$', markersize=8)
-axs[0, 0].plot(x, hyper_tqm, marker='+', color='darkred', linestyle="dashdot",label='$Hyper_{tqm}$', markersize=8)
+axs[0, 0].plot(x, hyper, marker='2', color='crimson',  linestyle="--", label='$Hyper$', markersize=8)
+axs[0, 0].plot(x, hyper_inc, marker='3', color='k', linestyle=":",label='$Hyper_{inc}$', markersize=8)
+#axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
+axs[0, 0].plot(x, hyper_ext, marker='1', color='tomato', linestyle=":",label='$Hyper_{ext}$', markersize=8)
+axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
 
 axs[0, 0].set_ylabel('time (sec.)', fontdict=font1)
 axs[0, 0].set_xlabel('$mio$', fontdict=font1)
 axs[0, 0].set_title('(a) TPCH: Varying $|D|$', fontdict=font1)
 axs[0, 0].set_xlim([1, 8    ])
-#axs[0, 0].set_ylim([0, 10000])
+axs[0, 0].set_ylim([0, 200])
 axs[0, 0].tick_params(labelsize=10)
+for ytick in axs[1, 0].get_yticklabels():
+    ytick.set_rotation(30)
+
+
+#hyper = [ 212.545285, 137.476279, 117.308165, 104.527871, 97.416963, 89.340965, 88.380350]
+hyper = [ 323.666747, 183.821694, 0,158.845615,0,0,0]
+hyper = [  271.084665,  187.453172,  149.914119, 151.032481, 134.543713, 133.198432, 133.041249]
+hyper_inc = [0,0, 68.250209, 70.410183, 70.957951, 71.437485, 0]
+#hyper_nml = [ 192.156395, 128.776147, 109.266810, 99.405487, 92.458567, 90.039718, 94.679042 ]
+#hyper_tqm = [5,5,5,5,5]
+x = [1, 2, 3, 4, 5,6,7]
+axs[1, 0].plot(x, hyper, marker='2', color='crimson',  linestyle="-",  markersize=8)
+axs[1, 0].plot(x, hyper_inc, marker='3', color='k', linestyle=":", markersize=8)
+#axs[1, 0].plot(x, hyper_nml, marker='x', color='lightseagreen', linestyle=":", markersize=8)
+#axs[1, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":", markersize=8)
+
+
+axs[1, 0].set_ylabel('time (sec.)', fontdict=font1)
+axs[1, 0].set_xlabel('$n$', fontdict=font1)
+axs[1, 0].set_title('(a) TPCH: Varying $n$', fontdict=font1)
+axs[1, 0].set_xlim([1, 7])
+axs[1, 0].set_ylim([0, 300])
+axs[1, 0].tick_params(labelsize=10)
 for ytick in axs[1, 0].get_yticklabels():
     ytick.set_rotation(30)
 
