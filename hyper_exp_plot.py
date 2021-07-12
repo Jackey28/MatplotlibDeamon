@@ -61,14 +61,14 @@ ax2.set_ylim([0.8, 1.0])
 axs[0, 0].plot(x, hyper, marker='x', color='orange', linestyle="--", label='$Hyper_1$', markersize=9)
 # axs[0, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":",label='$Hyper_{inc}$', markersize=7)
 # axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
-axs[0, 0].plot(x, hyper_ext, marker='<', color='lightseagreen',  label='$Hyper$', markersize=9)
+axs[0, 0].plot(x, hyper_ext, marker='.', color='lightseagreen', linestyle=":", label='$Hyper$', markersize=9)
 # axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
 axs[0, 0].set_ylabel('time (sec.)', fontdict=font1)
 # axs[0, 0].set_xlabel('$|B|$', fontdict=font1)
 axs[0, 0].set_title('(a) DBLP-ACM: Varying $|\mathcal{B}|$', fontdict=font1)
 axs[0, 0].set_xlim([8, 128])
 # axs[0, 0].set_ylim([0, 1150])
-axs[0, 0].tick_params(labelsize=10)
+#axs[0, 0].tick_params(labelsize=10)
 for ytick in axs[0, 0].get_yticklabels():
     ytick.set_rotation(30)
 for xtick in axs[0, 0].get_xticklabels():
@@ -95,10 +95,10 @@ ax2.set_ylabel('recall', fontdict=font1)
 ax2.fill_between(x, rec, baseline_, facecolor='black', alpha=0.1)
 ax2.set_ylim([0.0, 0.5])
 # ax2.set_xlim([0, 127])
-axs[0, 1].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=7)
+axs[0, 1].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=9)
 # axs[0, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":",label='$Hyper_{inc}$', markersize=7)
 # axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
-axs[0, 1].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
+axs[0, 1].plot(x, hyper_ext, marker='.', color='#42b395', linestyle=":", markersize=9)
 # axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
 axs[0, 1].set_ylabel('time (sec.)', fontdict=font1)
 # axs[0, 1].set_xlabel('$|B|$', fontdict=font1)
@@ -131,10 +131,10 @@ ax2.set_ylabel('recall', fontdict=font1)
 ax2.fill_between(x, rec, baseline_, facecolor='black', alpha=0.1)
 ax2.set_ylim([0.8, 0.9])
 # ax2.set_xlim([0, 127])
-axs[0, 2].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=7)
+axs[0, 2].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=9)
 # axs[0, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":",label='$Hyper_{inc}$', markersize=7)
 # axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
-axs[0, 2].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
+axs[0, 2].plot(x, hyper_ext, marker='.', color='#42b395', linestyle=":", markersize=9)
 # axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
 axs[0, 2].set_ylabel('time (sec.)', fontdict=font1)
 # axs[0, 1].set_xlabel('$|B|$', fontdict=font1)
@@ -167,10 +167,10 @@ ax2.set_ylabel('recall', fontdict=font1)
 ax2.fill_between(x, rec, baseline_, facecolor='black', alpha=0.1)
 ax2.set_ylim([0.75, 0.95])
 # ax2.set_xlim([0, 127])
-axs[0, 3].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=7)
+axs[0, 3].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=9)
 # axs[0, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":",label='$Hyper_{inc}$', markersize=7)
 # axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
-axs[0, 3].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
+axs[0, 3].plot(x, hyper_ext, marker='.', color='#42b395', linestyle=":", markersize=9)
 # axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
 axs[0, 3].set_ylabel('time (sec.)', fontdict=font1)
 # axs[0, 1].set_xlabel('$|B|$', fontdict=font1)
@@ -205,43 +205,83 @@ disdedup = np.log2(disdedup)
 hyper_tqm = [5, 5, 5, 5, 5]
 x = [0.6, 1.2, 2.4, 3.6, 4]
 
-axs[1, 0].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle=':', markersize=5, label='Sparker')
-# axs[0, 0].plot(x, dedoop, marker='*', color='darkslateblue', linestyle='--', label='Dedoop', markersize=4)
-axs[1, 0].plot(x_, disdedup, marker='o', color='olive', linestyle=(0, (5, 1)), label='Disdedup')
-axs[1, 0].plot(x, hyper, marker='x', color='orange', linestyle="--", label='$Hyper$', markersize=7)
-axs[1, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":", markersize=7)
-# axs[0, 0].plot(x, hyper_nml, marker='*', color='lightseagreen', linestyle=":",label='$Hyper_{nml}$', markersize=8)
-axs[1, 0].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
-# axs[0, 0].plot(x, hyper_tqm, marker='+', color='orange', linestyle=":",label='$Hyper_{tqm}$', markersize=8)
+axs[1, 0].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle=':', label='Sparker', markersize=9)
+axs[1, 0].plot(x_, disdedup, marker='o', color='olive', linestyle=(0, (5, 1)), label='Disdedup', markersize=9)
+axs[1, 0].plot(x, hyper, marker='x', color='orange', linestyle="--", label='$Hyper$', markersize=9)
+axs[1, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":", markersize=9)
+axs[1, 0].plot(x, hyper_ext, marker='.', color='#42b395', linestyle=":", markersize=9)
 
 axs[1, 0].set_ylabel('time ($log$ sec.)', fontdict=font1)
 axs[1, 0].set_xlabel('$mio$', fontdict=font1)
-axs[1, 0].set_title('(a) TPCH: Varying $|D|$', fontdict=font1)
+axs[1, 0].set_title('(e) TPCH: Varying $|D|$', fontdict=font1)
 axs[1, 0].set_xlim([0.6, 4])
 # axs[0, 0].set_ylim([0, 1150])
 axs[1, 0].tick_params(labelsize=10)
 for ytick in axs[1, 0].get_yticklabels():
     ytick.set_rotation(30)
 
+spark_er = [169.2491631507873, 334.80596590042114, 653.613538026809, 986.5015697479248, 1113.9779381752014]
+dedoop = [0, 0, 0, 0, 0]
+disdedup = [1392, 2784, ]
+x_ = [0.6, 1.2]
+hyper = [969.216079, 1721.813380,  2099.452821, 2424.598609, 2842.113996]
+hyper_ext = [647.56, 1468.53, 1070.146582, 1380.035864,  1604.833644]
+x = [18, 24, 28, 32, 36]
+
+#axs[1, 1].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle=':', markersize=9)
+#axs[1, 1].plot(x_, disdedup, marker='o', color='olive', linestyle=(0, (5, 1)))
+axs[1, 1].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=9)
+axs[1, 1].plot(x, hyper_ext, marker='.', color='#42b395', linestyle=":", markersize=9)
+
+axs[1, 1].set_ylabel('time ($log$ sec.)', fontdict=font1)
+axs[1, 1].set_xlabel('$mio$', fontdict=font1)
+axs[1, 1].set_title('(f) TFACC: Varying $|D|$', fontdict=font1)
+axs[1, 1].set_xlim([18, 36])
+# axs[0, 0].set_ylim([0, 1150])
+axs[1, 1].tick_params(labelsize=10)
+for ytick in axs[1, 0].get_yticklabels():
+    ytick.set_rotation(30)
+
+
+
 # hyper = [ 212.545285, 137.476279, 117.308165, 104.527871, 97.416963, 89.340965, 88.380350]
 hyper = [271.084665, 187.453172, 149.914119, 151.032481, 134.543713, 133.198432, 133.041249]
-hyper_ext = [217.713251, 160.747026, 137.658129, 131.760152, 120.550031, 121.949107, 122.881350]
-hyper_inc = [63.600067, 65.604519, 68.250209, 70.410183, 70.957951, 71.437485, 74.126610]
+#hyper_ext = [217.713251, 160.747026, 137.658129, 131.760152, 120.550031, 121.949107, 122.881350]
+#hyper_inc = [63.600067, 65.604519, 68.250209, 70.410183, 70.957951, 71.437485, 74.126610]
 # hyper_nml = [ 192.156395, 128.776147, 109.266810, 99.405487, 92.458567, 90.039718, 94.679042 ]
 # hyper_tqm = [5,5,5,5,5]
 x = [1, 2, 3, 4, 5, 6, 7]
 axs[2, 0].plot(x, hyper, marker='x', color='orange', linestyle="--", markersize=7)
-axs[2, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":", markersize=7)
-axs[2, 0].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
+#axs[2, 0].plot(x, hyper_inc, marker='*', color='tomato', linestyle=":", markersize=7)
+#axs[2, 0].plot(x, hyper_ext, marker='<', color='#42b395', linestyle=":", markersize=7)
 axs[2, 0].set_ylabel('time (sec.)', fontdict=font1)
-axs[2, 0].set_xlabel('$n$', fontdict=font1)
-axs[2, 0].set_title('(a) TPCH: Varying $n$', fontdict=font1)
+axs[2, 0].set_xlabel('$|d|$', fontdict=font1)
+axs[2, 0].set_title('(i) TPCH: evaluation of scalability', fontdict=font1)
 axs[2, 0].set_xlim([1, 7])
 axs[2, 0].set_ylim([60, 80])
 axs[2, 0].tick_params(labelsize=10)
-for ytick in axs[1, 0].get_yticklabels():
+for ytick in axs[2, 0].get_yticklabels():
     ytick.set_rotation(30)
 
+# hyper = [ 212.545285, 137.476279, 117.308165, 104.527871, 97.416963, 89.340965, 88.380350]
+hyper1 = [271.084665, 187.453172, 149.914119, 151.032481, 1151.859]
+hyper2 = [271.084665, 187.453172, 149.914119, 151.032481, 1003.01]
+hyper4 = [271.084665, 187.453172, 149.914119, 151.032481, 763.52386]
+hyper8 = [271.084665, 187.453172, 149.914119, 151.032481, 668.656605]
+#hyper_ext = [217.713251, 160.747026, 137.658129, 131.760152, 120.550031, 121.949107, 122.881350]
+#hyper_inc = [63.600067, 65.604519, 68.250209, 70.410183, 70.957951, 71.437485, 74.126610]
+# hyper_nml = [ 192.156395, 128.776147, 109.266810, 99.405487, 92.458567, 90.039718, 94.679042 ]
+# hyper_tqm = [5,5,5,5,5]
+x = [1, 2, 3, 4, 5]
+axs[2, 1].plot(x, hyper1, marker='x', color='orange', linestyle="--", markersize=7)
+axs[2, 1].set_ylabel('time (sec.)', fontdict=font1)
+axs[2, 1].set_xlabel('$|d|$', fontdict=font1)
+axs[2, 1].set_title('(i) TPCH: evaluation of scalability', fontdict=font1)
+axs[2, 1].set_xlim([1, 5])
+#axs[2, 1].set_ylim([60, 80])
+axs[2, 1].tick_params(labelsize=10)
+for ytick in axs[2, 1].get_yticklabels():
+    ytick.set_rotation(30)
 
 y1 = [2300+436+139.654+1.761+1+185.92, 3900+1200, 5100+742.682+214.14, 6700+986.747+243.296, 8300+1200+292.0457]
 y2 = [2300, 3900, 5100, 6700, 8300]
@@ -281,6 +321,7 @@ axs[1, 2].bar(x_ + 5*width, y5, width=width,
 axs[1, 2].set_ylabel('time (sec.)', fontdict=font1)
 ticks = axs[1, 2].set_xticks([0.55+3*width, 0.66+3*width,0.77+3*width, 0.88+3*width, 1+3*width])
 axs[1, 2].set_xticklabels(['0.55','0.66','0.77','0.88','1.0'],rotation = 30)
+axs[1, 2].set_title('(i) TPCH: cost breakdown', fontdict=font1)
 for ytick in axs[1, 2].get_yticklabels():
     ytick.set_rotation(30)
 
@@ -318,12 +359,13 @@ axs[1, 3].bar(x_ + 5*width, y5, width=width,
 axs[1, 3].set_ylabel('time (sec.)', fontdict=font1)
 ticks = axs[1, 3].set_xticks([0.55+3*width, 0.66+3*width,0.77+3*width, 0.88+3*width, 1+3*width])
 axs[1, 3].set_xticklabels(['0.55','0.66','0.77','0.88','1.0'],rotation = 30)
+axs[1, 3].set_title('(j) TFACC: cost breakdown', fontdict=font1)
 for ytick in axs[1, 3].get_yticklabels():
     ytick.set_rotation(30)
 
 
 
 
-fig.legend(loc='upper center', ncol=8, fontsize=13)
+fig.legend(loc='upper center', ncol=8, fontsize=9)
 
 plt.show()
