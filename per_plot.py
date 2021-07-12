@@ -417,7 +417,7 @@ axs[0, 1].plot(x__, y1, linestyle=":", color='grey')
 axs[0, 1].set_xticklabels(['Dedoop', '$Disdedup$', '$Sparker$', '$DMatch_C$', '$DMatch_D$', '$DMatch$'])
 axs[0, 1].set_ylabel('F1', fontdict=font1)
 axs[0, 1].tick_params(labelsize=8)
-#axs[0, 0].set_ylim([0.1, 0.9])
+axs[0, 1].set_ylim([0.1, 0.9])
 #axs[0, 0].set_xlim([0.1, 0.9])
 axs[0, 1].set_title('(b) TFACC: Accuracy', fontdict=font1, y=-0.35)
 for xtick in axs[0, 1].get_xticklabels():
@@ -635,22 +635,19 @@ axs[1, 1].tick_params(labelsize=14)
 #    ytick.set_rotation(30)
 
 #per_nomqo = [3.4, 3.0, 3.1, 2.8, 2.3]
-per_nomqo = [ 0.012, 0.885, 1.14,3.39,4.77]
+#per_nomqo = [ 0.012, 0.885, 1.14,3.39,4.77]
+per_mqo = [ 39.42, 38.8827, 73.1688, 74.161, 84.53]
+per_nomqo = [ 39.6209, 38.8309, 76.048,  74.161, 99.625]
 #per_mqo = [58.09, 60.28, 63.1646, 65.935, 67.89]
-x = [ 2,3,4,5,6]
-#axs[1, 2].plot(x, spark_er, marker='d', color='mediumslateblue', linestyle='--', markersize=5 )
-#axs[1, 2].plot(x, dedoop, marker='x', color='darkslateblue', linestyle=':',  markersize=4)
-#axs[1, 2].plot(x, disdedup, marker='o', color='olive', linestyle=(0,(5,1)), )
-#axs[1, 2].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
-#axs[2, 3].plot(x, per_mqo, marker='2', color='darkred',  markersize=8)
-#axs[1,32].plot(x, per, marker='2', color='crimson',  linestyle="dashdot",  markersize=8)
+x = [ 1,2,4,6,8]
 axs[1, 0].plot(x, per_nomqo, marker='<', color='lightseagreen',linestyle=':', markersize=9,  linewidth=2)
+axs[1, 0].plot(x, per_mqo, marker='*', color='crimson',   markersize=9,  linewidth=2)
 
 axs[1, 0].set_ylabel('time (sec.)', fontdict=font1)
 #axs[2, 3].set_xlabel('$|X|$', fontdict=font1)
 axs[1, 0].set_title(r'(e) TPCH: Varying $|\varphi|$', fontdict=font1, y=-0.35)
-#axs[1, 2].set_xlim([0, 20])
-axs[1, 0].set_xlim([2, 6])
+axs[1, 0].set_xlim([35, 100])
+axs[1, 0].set_xlim([1, 8])
 axs[1, 0].tick_params(labelsize=12)
 #for ytick in axs[1, 0].get_yticklabels():
 #    ytick.set_rotation(30)
